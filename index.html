@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./styles/index.css">
+
+  <link rel="icon" href="./media/image/waterside-icon.png" type="image/x-icon">
+
+  <title>Waterside Cafe - Welcome</title>
 </head>
+
 <body>
-    <h1>HELLO WORLD</h1>
+  <section class="welcome_banner carousel">
+    <div class="language">
+      <span class="TC current">繁中</span>
+      <span class="SC">简中</span>
+      <span class="EN">ENG</span>
+    </div>
+
+    <div class="carousel-track">
+      <div class="carousel-item" data-language="TC">
+        <div class="slide-image" style="background-image: url('./media/image/web_banner/TC.webp');"></div>
+        <div class="slide-text">
+          <h1 class="text_heading">歡迎瀏覽</h1>
+          <h2 class="text_subheading">即將推出，敬請期待</h2>
+        </div>
+      </div>
+
+      <div class="carousel-item" data-language="SC">
+        <div class="slide-image" style="background-image: url('./media/image/web_banner/SC.webp');"></div>
+        <div class="slide-text">
+          <h1 class="text_heading">欢迎浏览</h1>
+          <h2 class="text_subheading">即将推出，敬请期待</h2>
+        </div>
+      </div>
+
+      <div class="carousel-item" data-language="EN">
+        <div class="slide-image" style="background-image: url('./media/image/web_banner/EN.webp');"></div>
+        <div class="slide-text">
+          <h1 class="text_heading">Welcome</h1>
+          <h2 class="text_subheading">Coming Soon, please look forward</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./main.js"></script>
 </body>
+
 </html>

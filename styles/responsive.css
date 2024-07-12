@@ -1,0 +1,182 @@
+@media only screen and (max-width: 950px) {
+    .logo a {
+        font-size: 20px;
+    }
+
+    .menu {
+        flex-direction: column;
+        background-color: #151418;
+        align-items: start;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    .menu a,
+    .sub_menu_label {
+        margin-left: 12px;
+        color: #ffffff;
+    }
+
+    .menu a:hover,
+    .sub_menu_label:hover {
+        color: #ffffff;
+    }
+
+    .current:hover {
+        color: #ffffff !important;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: block;
+        color: rgba(115, 189, 135, 0.75);
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    /* Submenu */
+    .sub_item {
+        max-height: 0;
+        overflow-y: hidden;
+        width: 100%;
+        position: sticky;
+        transition: max-height 0.3s ease;
+
+        background-color: rgba(255, 255, 255, 0.1);
+
+        border-radius: 0;
+    }
+
+    .sub_item ul li a {
+        color: #ffffff;
+    }
+
+    .sub_item ul li a:focus {
+        color: #7a5454;
+    }
+}
+
+/* RESPONSIVE HEADER CSS - END */
+
+@media (max-width: 768px) {
+
+    /* Home Banner */
+    /* .welcome.banner {
+        height: 50vh;
+    } */
+
+    .text.heading {
+        font-size: 60px;
+    }
+
+    .text.subheading {
+        font-size: 40px;
+    }
+
+    /* Notice Popup */
+    .notice_container {
+        width: 80%;
+    }
+
+    .notice_content {
+        flex-direction: column;
+    }
+
+    .notice_container .image_notice_content {
+        max-width: 100%;
+    }
+
+    .image_description_box {
+        padding: 10px 0;
+    }
+
+    .name_title {
+        font-size: 20px;
+    }
+
+    .name_subtitle {
+        font-size: 16px;
+    }
+
+    /* Page Heading */
+    .heading_banner_text {
+        font-size: 36px;
+    }
+
+    .heading_banner {
+        height: 30vh;
+    }
+
+    .sub_item {
+        padding: 5px;
+    }
+
+    .sub_menu:hover .sub_item {
+        max-height: 200px;
+        /* Adjust the value as needed */
+        transition: max-height 0.3s ease;
+    }
+
+    /* Gallery Year */
+    .overlay_content .year {
+        font-size: 40px;
+    }
+
+    .overlay_content .heading {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Home banner */
+    /* .welcome.banner {
+        height: 30vh;
+    } */
+
+    .text.heading {
+        font-size: 40px;
+    }
+
+    .text.subheading {
+        font-size: 26px;
+    }
+
+    /* Notice Popup */
+    .notice_container {
+        width: 90%;
+    }
+
+    .top_text {
+        font-size: 18px;
+    }
+
+    .name_title {
+        font-size: 18px;
+    }
+
+    .name_subtitle {
+        font-size: 14px;
+    }
+
+    /* Page Heading */
+    .heading_banner_text {
+        font-size: 24px;
+    }
+
+    /* Submenu */
+
+    .sub_item {
+        padding: 3px;
+    }
+}
