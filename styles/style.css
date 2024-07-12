@@ -258,10 +258,11 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #1e4e6d;
+    background-color: #1882c8;
 }
 
 .footer ul li {
     display: flex;
     justify-content: center;
+    margin: 0 10px;
 }
