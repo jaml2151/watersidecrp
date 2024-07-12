@@ -256,19 +256,12 @@ body {
     transform: scale(1, 1);
 }
 
-.intra_login {
-    border: 2px solid rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-    border-radius: 5px 5px 0 0;
-    display: flex !important;
-    align-items: center;
-
-    &:hover {
-        border: 2px solid rgb(163, 215, 235);
-        color: rgb(32, 196, 255);
-    }
+/* Footer */
+.footer {
+    background-color: #1e4e6d;
 }
 
-.intra_login svg {
-    margin-right: 5px;
+.footer ul {
+    display: flex;
+    justify-content: center;
 }
