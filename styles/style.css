@@ -261,8 +261,11 @@ body {
     background-color: #1882c8;
 }
 
-.footer ul li {
+.footer ul {
     display: flex;
     justify-content: center;
-    margin: 0 10px;
 }
+
+.footer ul li {
+    margin: 0 10px;
+} 
