@@ -259,6 +259,7 @@ body {
 /* Footer */
 .footer {
     background-color: #108bdd;
+    padding: 10px 0;
 }
 
 .footer ul {
@@ -268,4 +269,9 @@ body {
 
 .footer ul li {
     margin: 0 10px;
+}
+
+.copyright {
+    user-select: none;
+    text-align: center;
 }
