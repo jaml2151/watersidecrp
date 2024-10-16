@@ -602,7 +602,7 @@ div.Go_link a:hover {
   line-height: 30px;
 }
 
-.login_form .discord_login {
+.login_form .external {
   display: block;
   border: 0;
   color: #fff !important;
@@ -611,17 +611,29 @@ div.Go_link a:hover {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  background: #3b82ff;
   cursor: pointer;
   line-height: 26px;
 }
 
-.login_form .discord_login img{
+.discord_login {
+  background: #3b82ff;
+}
+
+.roblox_login {
+  background: #ff1b1b;
+}
+
+.discord_login:hover {
+  background: #0f62fe; /* High contrast with non-hover color */
+}
+
+.roblox_login:hover {
+  background: #d90000; /* High contrast with non-hover color */
+}
+
+.login_form .external img{
   vertical-align: top;
   margin-right: 5px;
-}
-.login_form .discord_login:hover {
-  background: #61a1ff;
 }
 
 .alert-danger {
