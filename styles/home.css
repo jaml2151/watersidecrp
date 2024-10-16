@@ -1,48 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato:wght@300;400;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-.popup {
-    justify-content: center;
-    align-items: center;
+/* POPUP NOTICE */
+.popup_notice {
+    display: none;
     position: fixed;
     z-index: 9999;
-    top: 50%;
-    left: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
+    overflow: auto;
+
+    user-select: none;
+}
+
+.popup_notice.show {
+    display: flex;
+}
+
+.notice_container {
+    position: relative;
+    width: 50%;
+    max-height: 70%;
+    /* Set a maximum height for the notice container */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    /* Hide the scrollbars by default */
     opacity: 0;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    transform: translate(-50%, -50%);
-}
-
-.popup_content {
     transform: scale(0);
-    transition: transform 0.5s ease-in-out;
-    background-color: #FFF;
-    border-radius: 10px;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-.popup.visible .popup_content {
+.popup_notice.show .notice_container {
+    opacity: 1;
     transform: scale(1);
 }
 
 .notice_top {
     width: 100%;
     border-bottom: 1px solid rgba(38, 166, 181, 0.8);
-    border-radius: 10px 10px 0 0;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f0f0f0;
     position: sticky;
+    /* Add sticky positioning */
     top: 0;
-    font-size: 12px;
+    /* Stick to the top of the container */
 }
 
-.popup_message {
-    padding: 20px;
+.notice_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.top_text {
+    font-weight: bold;
+    letter-spacing: -1px;
+    /* Adjust the value as needed */
+    font-size: 20px;
+    user-select: none;
+    display: flex;
+}
+
+.notice_content {
+    display: flex;
+    /* Add flex display */
+    width: 100%;
     font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    /* Add padding for spacing */
+    overflow: auto;
+    /* Enable scrolling if content overflows */
+}
+
+.notice_container .image_notice_content {
+    flex: 0 0 auto;
+    /* Prevent image from growing */
+    max-width: 50%;
+    /* Adjust image width */
+    /* Ensure the image does not exceed the container height */
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.image_description_box {
+    flex: 1 1 auto;
+    /* Allow description to grow */
+    padding: 10px;
+}
+
+.image_description {
+    padding: 5px 0;
+}
+
+.image_description .title {
+    font-weight: 600;
+}
+
+.event_name {
+    margin-bottom: 5px;
+}
+
+.name_title {
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+
+    color: rgb(28, 209, 209);
+    letter-spacing: -1px;
+    /* Adjust the value as needed */
+}
+
+.name_subtitle {
+    font-size: 18px;
+    color: #34a7d8;
+}
+
+.station {
+    font-weight: bold;
+    color: #333;
 }
 
 .close_button {
@@ -58,203 +139,5 @@
 .close_button:hover {
     color: #3d3d3d;
 }
-/* END - Popup */
 
-.news_banner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-
-    padding: 10px 0;
-    background-color: #1e4e6d;
-    position: relative;
-    transition: 1s;
-    border-top: 1px solid white;
-}
-
-.news_banner::before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../media/Image/wave-bg.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-    background-size: 100%;
-    transition: 1s;
-}
-
-.notice {
-    color: #fff;
-    font-size: 20px;
-}
-
-.news_header {
-    margin-left: 10px;
-    width: 150px;
-    height: calc(100% + 20px);
-    display: grid;
-    position: relative;
-    user-select: none;
-    font-weight: 700;
-    font-size: 20px;
-    color: #ccc;
-    align-self: center;
-    border-right: 1px solid white;
-    line-height: normal;
-    align-items: center;
-}
-
-#news {
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    width: 100%;
-}
-
-.latest_news {
-    transition: all 400ms ease;
-
-    display: flex;
-    align-items: center;
-
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    transform: translateY(-50%);
-    top: 100%;
-    pointer-events: none;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    vertical-align: middle;
-    color: #FFF;
-}
-
-.latest_news.active {
-    opacity: 1;
-    top: 50%;
-    pointer-events: auto;
-}
-
-.message_content {
-    padding: 0 10px;
-    font-size: 20px;
-    user-select: none;
-    transition: 0.5s;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.message_content img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.container-fluid {
-    width: 100%;
-    padding: 0 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.welcome_banner {
-    background-size: cover;
-    position: relative;
-    margin-bottom: 35px;
-    background-image: url("../media/image/background/bg_main1.jpg");
-    background-position: center center;
-    height: 100vh;
-    transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
-    width: 100%;
-}
-
-.welcome_banner::before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(34, 34, 34, 0.6), rgba(18, 67, 98, 0.6));
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-    background-size: 100%;
-    transition: 1s;
-}
-
-.banner_content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    z-index: 2;
-    animation: fade-in 5s;
-}
-
-.banner_content h1 {
-    font-family: 'Dancing Script', sans-serif;
-    font-size: 90px;
-    font-style: italic;
-    text-shadow: 0 0 3px rgb(0, 0, 0);
-    -webkit-user-select: none;
-    /* Safari */
-    -ms-user-select: none;
-    /* IE 10 and IE 11 */
-    user-select: none;
-    /* Standard syntax */
-}
-
-.banner_content h2 {
-    font-family: 'Urbanist', sans-serif;
-    text-transform: uppercase;
-    font-size: 70px;
-    font-weight: 800;
-    text-shadow: 0 0 3px #000;
-    -webkit-user-select: none;
-    /* Safari */
-    -ms-user-select: none;
-    /* IE 10 and IE 11 */
-    user-select: none;
-    /* Standard syntax */
-}
-
-@media (max-width:767px) {
-    .welcome_banner {
-        height: 50vh !important;
-    }
-
-    .banner_content h2 {
-        font-size: 40px;
-    }
-
-    .banner_content h1 {
-        font-size: 40px;
-    }
-
-    #news {
-        justify-content: center;
-    }
-}
-
-@media (max-width:576px) {
-    .welcome_banner {
-        height: 30vh !important;
-    }
-
-    .banner_content h2 {
-        font-size: 26px;
-    }
-
-}
+/* POPUP NOTICE - END */

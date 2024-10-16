@@ -1,72 +1,63 @@
-var sec = 10;
 
-var carousel = document.querySelector('.carousel');
-var track = carousel.querySelector('.carousel-track');
-var slides = carousel.querySelectorAll('.carousel-item');
-var slideWidth = slides[0].offsetWidth;
-var currentSlide = 0;
-var isTransitioning = false;
-var slideInterval = setInterval(nextSlide, sec * 1000); // Change slide every "sec" seconds in ms
+window.addEventListener("scroll", function () {
+    var header = document.querySelector(".site_heading");
 
-function nextSlide() {
-    if (!isTransitioning) {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlidePosition();
+    if (window.scrollY > 0) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
     }
+});
+
+var slideIndex = 0;
+var seconds = 10;
+
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("carousel-item");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+
+    slides[slideIndex - 1].style.display = "block";
+
+    setTimeout(showSlides, seconds * 1000); // Change image every specified seconds in MS
 }
 
-function previousSlide() {
-    if (!isTransitioning) {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlidePosition();
+// View album details
+// document.querySelector(".banner.link").addEventListener("click", function () {
+//    window.location.href = "album/a4.html";
+// });
+
+const zoomContainers = document.querySelectorAll('.zoom_container');
+
+zoomContainers.forEach(container => {
+    container.addEventListener('mousemove', handleMouseMove);
+});
+
+// JavaScript code to display the popup when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    var delayInMilliseconds = 2000; // Delay in milliseconds before showing the popup (e.g., 3000 milliseconds = 3 seconds)
+
+    var popup = document.getElementById("notice");
+    var closeButton = document.getElementById("closePopup");
+
+    if (popup) {
+        setTimeout(function () {
+            popup.classList.add("show");
+        }, delayInMilliseconds);
     }
-}
 
-function updateSlidePosition() {
-    isTransitioning = true;
-    track.style.transition = 'transform 0.5s ease-in-out';
-    track.style.transform = 'translateX(' + (-currentSlide * slideWidth) + 'px)';
-
-    setTimeout(function () {
-        track.style.transition = '';
-        isTransitioning = false;
-    }, 500); // Wait for the transition to finish before resetting the transition property
-
-    // Update active slide and language display
-    var activeSlide = slides[currentSlide];
-    var slideLanguage = activeSlide.getAttribute('data-language');
-
-    // Remove .current class from all slides
-    slides.forEach(function (slide) {
-        slide.classList.remove('current');
-    });
-
-    // Add .current class to the active slide
-    activeSlide.classList.add('current');
-
-    // Update language display
-    var languageSpans = document.querySelectorAll('.language span');
-    languageSpans.forEach(function (span) {
-        if (span.classList.contains(slideLanguage)) {
-            span.classList.add('current');
-        } else {
-            span.classList.remove('current');
-        }
-
-        // Add click event listener to language spans
-        span.addEventListener('click', function () {
-            var languageClass = span.classList[0];
-            var slideIndex = Array.from(slides).findIndex(function (slide) {
-                return slide.getAttribute('data-language') === languageClass;
-            });
-
-            if (slideIndex !== -1) {
-                currentSlide = slideIndex;
-                updateSlidePosition();
+    // JavaScript code to close the popup when the close button is clicked
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            if (popup) {
+                popup.classList.remove("show");
             }
         });
-    });
-}
-
-// Trigger the initial slide transition and language display update
-updateSlidePosition();
+    }
+});

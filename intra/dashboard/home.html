@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Bar with Avatar and Username</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+    }
+    .user-info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+</head>
+<body>
+<div class="top-bar">
+    <div class="menu">
+        <button>Menu</button>
+        <!-- Add your menu items here -->
+    </div>
+    <div class="user-info">
+        <div class="dropdown">
+            <img class="avatar" alt="User Avatar">
+            <span class="username">Username</span>
+            <div class="dropdown-content">
+                <a href="#">Logout</a>
+                <a href="#">Settings</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../intra.js"></script>
+</body>
+</html>

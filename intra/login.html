@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <link id="page_favicon" href="../media/image/waterside-icon.png" rel="icon" type="image/x-icon">
+    <title>Waterside Intranet</title>
+
+    <link rel="stylesheet" href="../styles/intra/sign-in.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <form id="loginForm" method="post">
+        <div id="ploginWrapper">
+            <div id="blkPhoto" style="background-image: url(./media/image/background/bg_main1.jpg);">
+
+            </div>
+
+            <div id="blkLogin">
+                <div id="blkFormWrapper" style="background-color: rgb(201, 254, 255);">
+                    <div id="blkForm">
+                        <div id="login_title" class="title_b5" style="user-select: none;" draggable="false">
+                            <span class="title_logo">
+                                <img src="../media/image/waterside-icon.png" draggable="false">
+                            </span>
+                            <span class="title_text"><strong>Waterside Corporation</strong>
+                                <span class="subtitle_text">Management Intranet</span>
+                            </span>
+                        </div>
+                        <div class="login_form">
+                            <span class="login"
+                                style="margin-bottom: 10px; color: blue; font-weight: 600; user-select: none;">
+                                Sign-in
+                            </span>
+
+                            <div class="username">
+                                <input class="user_loginname" type="text" name="username" id="username"
+                                    placeholder="Username" data-siid="si_input_0" data-si-pw="0">
+                            </div>
+                            <div class="password">
+                                <input class="user_password" type="password" name="password" id="password"
+                                    placeholder="Password" data-siid="si_input_1" data-si-pw="1">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                    <path
+                                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                </svg> -->
+                            </div>
+                            <input name="submit" type="submit" class="login_btn" id="login_btn" value="Login">
+
+                            <a href="#" class="forgot_password">Reset Password</a>
+
+                            <div class="login-seperate">
+                                <span class="line"></span>
+                                <span class="text">OR</span>
+                                <span class="line"></span>
+                            </div>
+
+                            <a onclick="signInWithDiscord()" class="discord_login"><img src="../media/discord-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA DISCORD</a>
+
+                            <!-- <div class="alert alert-danger" role="alert">Your session has timed out. Please log in again.</div> -->
+                        </div>
+                    </div>
+                    <div id="footer" style="user-select: none;">
+                        <span>© 2024 Waterside</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="intra.js"></script>
+    </form>
+
+</body>
+
+
+</html>

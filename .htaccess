@@ -1,0 +1,3 @@
+
+ErrorDocument 403 /waterside/error/403.html
+ErrorDocument 404 /waterside/error/404.html
