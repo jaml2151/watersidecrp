@@ -281,7 +281,7 @@ body {
 }
 
 .profile {
-	background: calc(var(--light) - 10%);
+	background-color: calc(var(--light) - 20%);
 	padding: 16px;
 	border-radius: 10px;
 }
