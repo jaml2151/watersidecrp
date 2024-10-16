@@ -271,6 +271,7 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
 #content nav .profile img {
 	width: 36px;
 	height: 36px;
@@ -299,6 +300,7 @@ body {
 	cursor: pointer;
 	position: relative;
 }
+
 #content nav .switch-mode::before {
 	content: '';
 	position: absolute;

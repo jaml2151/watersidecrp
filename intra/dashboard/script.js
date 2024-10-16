@@ -15,6 +15,10 @@ allSideMenu.forEach(item=> {
 // Add code to handle OAuth callback on the /callback route
 // For demonstration purposes, you can handle the callback in a simple way using JavaScript
 
+const clientId = '864432311004823583';
+const clientSecret = 'ckU_4eItB0rdBUd30sOHOaxVGci_igW-';
+const redirectUri = 'https://jaml2151.github.io/watersidecrp/intra/dashboard/home.html'; // Update with your GitHub Pages URL
+
 // Parse the authorization code from the query parameters
 const urlParams = new URLSearchParams(window.location.search);
 const code = urlParams.get('code');

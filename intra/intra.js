@@ -69,7 +69,6 @@ const clientSecret = 'ckU_4eItB0rdBUd30sOHOaxVGci_igW-';
 const redirectUri = 'https://jaml2151.github.io/watersidecrp/intra/dashboard/home.html'; // Update with your GitHub Pages URL
 
 function signInWithDiscord() {
-
     window.location = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+guilds.join`;
 }
 
