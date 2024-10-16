@@ -11,6 +11,20 @@ allSideMenu.forEach(item=> {
 	})
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const userData = JSON.parse(localStorage.getItem('discordUserData'));
+
+    if (userData) {
+        const usernameElement = document.querySelector('.username');
+        const avatarElement = document.querySelector('.avatar');
+
+        usernameElement.textContent = userData.username;
+        avatarElement.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+    } else {
+        // If user data is not available, redirect to sign-in page
+        window.location.href = './login.html';
+    }
+});
 
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
