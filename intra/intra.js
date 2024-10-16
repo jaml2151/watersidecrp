@@ -1,79 +1,14 @@
-/** Calendar
-
-var date = new Date(),
-    currYear = date.getFullYear(),
-    currMonth = date.getMonth(),
-    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-
-// storing full name of all months in array
-const months = [
-    "January", "February", "March", "April", "May", "June", "July",
-    "August", "September", "October", "November", "December"
-];
-
-// real-time clock
-
-setInterval(() => {
-    var currentTime = new Date();
-
-    // getting new date, current year and month
-    var date = new Date(),
-        currYear = date.getFullYear(),
-        currMonth = date.getMonth(),
-        currDate = date.getDate();
-
-    // time
-    var cHrs = currentTime.getHours(),
-        cMin = currentTime.getMinutes(),
-        cSec = currentTime.getSeconds();
-
-    var hrs = document.getElementById("hrs"),
-        min = document.getElementById("min"),
-        sec = document.getElementById("sec");
-
-    var dd = document.getElementById("dd"),
-        mm = document.getElementById("mm"),
-        yyyy = document.getElementById("yyyy");
-
-    if (cHrs < 10) {
-        cHrs = "0" + cHrs;
-    }
-
-    if (cMin < 10) {
-        cMin = "0" + cMin;
-    }
-
-    if (cSec < 10) {
-        cSec = "0" + cSec;
-    }
-
-    hrs.innerHTML = cHrs;
-    min.innerHTML = cMin;
-    sec.innerHTML = cSec;
-
-    dd.innerHTML = currDate;
-    mm.innerHTML = months[currMonth];
-    yyyy.innerHTML = currYear;
-
-}, 1000)
-**/
-
-
-/** END real-time clock **/
-
-
-/** Discord Login **/
-
 const clientId = '864432311004823583';
 const clientSecret = 'ckU_4eItB0rdBUd30sOHOaxVGci_igW-';
 const redirectUri = 'https://jaml2151.github.io/watersidecrp/intra/dashboard/home.html'; // Update with your GitHub Pages URL
 
+function saveUserDataToLocalStorage(userData) {
+    localStorage.setItem('discordUserData', JSON.stringify(userData));
+}
+
 function signInWithDiscord() {
     window.location = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+guilds.join`;
 }
-
-// Add code to handle OAuth callback on the /callback route
-// For demonstration purposes, you can handle the callback in a simple way using JavaScript
 
 // Parse the authorization code from the query parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -87,29 +22,36 @@ if (code) {
         },
         body: `client_id=${clientId}&client_secret=${clientSecret}&grant_type=authorization_code&code=${code}&redirect_uri=${encodeURIComponent(redirectUri)}`
     })
-    .then(response => response.json())
-    .then(data => {
-        const accessToken = data.access_token;
-
-        fetch('https://discord.com/api/users/@me', {
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        })
         .then(response => response.json())
-        .then(userData => {
-            const username = document.querySelector('.username');
-            const avatar = document.querySelector('.avatar');
+        .then(data => {
+            const accessToken = data.access_token;
 
-            // Display username, avatar, and banner
-            username.textContent = `${userData.username}`;
-            avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+            fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            })
+                .then(response => response.json())
+                .then(userData => {
+                    const username = document.querySelector('.username');
+                    const avatar = document.querySelector('.avatar');
+
+                    // Display username and avatar
+                    username.textContent = userData.username;
+                    avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+
+                    // Save user data to localStorage
+                    saveUserDataToLocalStorage(userData);
+                })
+                .catch(error => console.error('Error fetching user data:', error));
         })
-        .catch(error => console.error('Error fetching user data:', error));
-    })
-    .catch(error => console.error('Error exchanging code for token:', error));
+        .catch(error => console.error('Error exchanging code for token:', error));
 }
 
+// Function to save user data to localStorage
+function saveUserDataToLocalStorage(userData) {
+    localStorage.setItem('discordUserData', JSON.stringify(userData));
+}
 /** Random Background Image */
 
 var bg = document.querySelector("#blkPhoto");
