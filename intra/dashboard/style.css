@@ -281,16 +281,13 @@ body {
 	margin-right: 5px;
 }
 
-.profile {
-	background-color: var(--dark-grey);
-	padding: 10px 20px;
-	height: 100%;
-}
-
 .profile_info {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background-color: var(--dark-grey);
+	padding: 10px 20px;
+	height: 100%;
 }
 
 #content nav .switch-mode {

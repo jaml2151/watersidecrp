@@ -57,8 +57,12 @@
                                 <span class="line"></span>
                             </div> -->
 
-                            <a onclick="signInWithDiscord()" class="external discord_login"><img src="../media/discord-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA DISCORD</a>
-                            <a onclick="signInWithRoblox()" class="external roblox_login"><img src="../media/roblox-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA ROBLOX</a>
+                            <a onclick="signInWithDiscord()" class="external discord_login"><img
+                                    src="../media/discord-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA
+                                DISCORD</a>
+                            <a onclick="signInWithRoblox()" class="external roblox_login"><img
+                                    src="../media/roblox-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA
+                                ROBLOX</a>
 
                             <!-- <div class="alert alert-danger" role="alert">Your session has timed out. Please log in again.</div> -->
                         </div>
@@ -69,11 +73,37 @@
                 </div>
             </div>
         </div>
-
-        <script src="intra.js"></script>
     </form>
 
-</body>
+    <script src="intra.js"></script>
 
+    <script lang="text/javascript">
+        /** Random Background Image */
+
+        var bg = document.querySelector("#blkPhoto");
+        var bgPath = "../media/image/background/";
+        var format = ".jpg";
+        var backgrounds = [
+            `url('${bgPath}bg_main1${format}')`,
+            `url('${bgPath}bg_main2${format}')`,
+            `url('${bgPath}bg_main3${format}')`,
+            `url('${bgPath}bg_main4${format}')`,
+            `url('${bgPath}bg_main5${format}')`,
+            `url('${bgPath}bg_main6${format}')`,
+            `url('${bgPath}bg_main7${format}')`,
+            `url('${bgPath}bg_main8${format}')`,
+            `url('${bgPath}bg_main9${format}')`,
+            `url('${bgPath}bg_main10${format}')`,
+            `url('${bgPath}bg_main11${format}')`,
+            `url('${bgPath}bg_main12${format}')`,
+        ];
+        var randomNum = Math.floor(Math.random() * backgrounds.length);
+        console.log(`Selected Num: ${randomNum + 1}`);
+        console.log(`Selected BG: ${backgrounds[randomNum]}`);
+
+        bg.style.backgroundImage = backgrounds[randomNum];
+    </script>
+
+</body>
 
 </html>
