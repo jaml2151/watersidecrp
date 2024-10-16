@@ -22,7 +22,7 @@ li {
 	--blue: #3C91E6;
 	--light-blue: #CFE8FF;
 	--grey: #eee;
-	--dark-grey: #AAAAAA;
+	--dark-grey: #CCCCCC;
 	--dark: #342E37;
 	--red: #DB504A;
 	--yellow: #FFCE26;
@@ -39,6 +39,7 @@ body.dark {
 	--light: #0C0C1E;
 	--grey: #060714;
 	--dark: #FBFBFB;
+	--dark-grey: #333333;
 }
 
 body {
@@ -282,13 +283,14 @@ body {
 
 .profile {
 	background-color: var(--dark-grey);
-	padding: 16px;
-	border-radius: 10px;
+	padding: 10px 20px;
+	height: 100%;
 }
 
 .profile_info {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 #content nav .switch-mode {
