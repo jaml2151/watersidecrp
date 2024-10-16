@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avatarElement.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
     } else {
         // If user data is not available, redirect to sign-in page
-        window.location.href = './login.html';
+        window.location.href = '../login.html';
     }
 });
 
