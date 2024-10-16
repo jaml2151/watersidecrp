@@ -30,14 +30,9 @@ function showSlides() {
 
 // View album details
 // document.querySelector(".banner.link").addEventListener("click", function () {
-//    window.location.href = "album/a4.html";
 // });
 
 const zoomContainers = document.querySelectorAll('.zoom_container');
-
-zoomContainers.forEach(container => {
-    container.addEventListener('mousemove', handleMouseMove);
-});
 
 // JavaScript code to display the popup when the page loads
 document.addEventListener("DOMContentLoaded", function () {
