@@ -132,7 +132,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     transition: 0.2s;
-    color: #147fcc;
+    color: #241d91;
     height: 100%;
     display: flex;
     align-items: center;
@@ -140,7 +140,7 @@ body {
 }
 
 .logo a:hover {
-    color: #0f2186;
+    color: #030b37;
 }
 
 .login {
