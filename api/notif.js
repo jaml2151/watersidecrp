@@ -46,7 +46,7 @@ function sendWarningNotification(warning) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: window.JSON.stringify(data)
     })
     .then(response => {
         if (!response.ok) {
