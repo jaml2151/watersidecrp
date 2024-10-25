@@ -10,6 +10,16 @@ const orgIcons = {
     "gov": "https://upload.wikimedia.org/wikipedia/commons/9/90/Regional_Emblem_of_Hong_Kong.svg",
 };
 
+const orgName = {
+    "hko": "Hong Kong Obervatory",
+    "gov": "Government of the Hong Kong Special Administrative Region",
+}
+
+const orgURL = {
+    "hko": "https://www.hko.gov.hk/en/index.html",
+    "gov": "https://www.gov.hk/en/residents/",
+}
+
 let latestWarningData = {};
 
 function checkForWarningUpdates() {
@@ -29,16 +39,35 @@ function checkForWarningUpdates() {
 
 function sendWarningNotification(warning) {
     const data = {
+        content: "",
+        tts: false,
         embeds: [
             {
-                title: warning.name,
-                description: `Type: ${warning.type}`,
-                thumbnail: {
-                    url: orgIcons.hko // Replace this with the URL of the organization's icon
+                id: 10674342,
+                title: "Adverse Weather Notification",
+                color: 2326507,
+                fields: [
+                    {
+                        id: 608893643,
+                        name: "Warning #1",
+                        value: `**${warning.name}** - ${warning.type} was issued at ${warning.issueTime}`
+                    }
+                ],
+                author: {
+                    name: "Hong Kong Observatory",
+                    icon_url: orgIcons.hko,
+                    url: "https://www.hko.gov.hk/en/index.html"
                 },
-                color: 16711680 // Color for the embed (you can customize this)
+                thumbnail: {
+                    url: orgIcons.hko
+                },
+                footer: {
+                    text: "Adverse weather notification issued from the Hong Kong Observatory • Last Update at"
+                }
             }
-        ]
+        ],
+        components: [],
+        actions: {}
     };
 
     fetch(Webhook, {
