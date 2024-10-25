@@ -60,10 +60,13 @@ function sendWarningNotification(warning) {
 }
 
 function sendTestMessage() {
-    sendWarningNotification({
-        name: "Test Warning",
-        type: "Test Type"
-    });
+    fetch(jsonData.warning)
+        .then(response => response.json())
+        .then(data => {
+            const currentWarning = Object.values(data)[0]; // Get the first warning signal for testing
+            sendWarningNotification(currentWarning);
+        })
+        .catch(error => console.error('Error fetching current warning data:', error));
 }
 
 // Test sending a message
