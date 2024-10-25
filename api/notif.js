@@ -1,4 +1,4 @@
-const Webhook = "https://discord.com/api/webhooks/1299454788387471422/UKid-KF3evbGPHjTDdvXQdWwIlYt1eZKwg3UvcoWpjrlqyfYsjW7AazKt7UlOH86rEk4"; // Replace this with your actual Discord webhook URL
+const Webhook = "https://discord.com/api/webhooks/1194668220272091326/I9LlnnZnS8O4X0coHOY3JnXP3xr3T7EKA5o3Oj4WF-T5sPFQHn2AL7OPaN60KM_0GvWI"; // Replace this with your actual Discord webhook URL
 
 const jsonData = {
     "warning": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=en",
@@ -38,6 +38,8 @@ function checkForWarningUpdates() {
 }
 
 function sendWarningNotification(warning) {
+    const currentTime = new Date().toLocaleString(); // Get the current time in a readable format
+
     const data = {
         content: "",
         tts: false,
@@ -62,8 +64,9 @@ function sendWarningNotification(warning) {
                     url: orgIcons.hko
                 },
                 footer: {
-                    text: "Adverse weather notification issued from the Hong Kong Observatory • Last Update at"
-                }
+                    text: `Adverse weather notification issued from the Hong Kong Observatory • Last Update at `
+                },
+                timestamp: `${currentTime}`
             }
         ],
         components: [],
