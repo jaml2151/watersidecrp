@@ -1,4 +1,3 @@
-
 const Webhook = "https://discord.com/api/webhooks/1299454788387471422/UKid-KF3evbGPHjTDdvXQdWwIlYt1eZKwg3UvcoWpjrlqyfYsjW7AazKt7UlOH86rEk4"; // Replace this with your actual Discord webhook URL
 
 const JSON = {
@@ -53,10 +52,10 @@ function sendWarningNotification(warning) {
         if (!response.ok) {
             throw new Error('Failed to send message');
         }
-        console.log('Notification sent successfully');
+        console.log('Weather warning notification sent successfully');
     })
     .catch(error => {
-        console.error('Error sending notification:', error);
+        console.error('Error sending weather warning notification:', error);
     });
 }
 
