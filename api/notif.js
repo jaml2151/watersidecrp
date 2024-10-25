@@ -1,6 +1,6 @@
 const Webhook = "https://discord.com/api/webhooks/1299454788387471422/UKid-KF3evbGPHjTDdvXQdWwIlYt1eZKwg3UvcoWpjrlqyfYsjW7AazKt7UlOH86rEk4"; // Replace this with your actual Discord webhook URL
 
-const JSON = {
+const jsonData = {
     "warning": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warnsum&lang=en",
     "holiday": "https://www.1823.gov.hk/common/ical/en.json",
 };
@@ -13,7 +13,7 @@ const orgIcons = {
 let latestWarningData = {};
 
 function checkForWarningUpdates() {
-    fetch(JSON.warning)
+    fetch(jsonData.warning)
         .then(response => response.json())
         .then(data => {
             const warningSignals = Object.keys(data);
