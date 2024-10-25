@@ -41,7 +41,7 @@ function sendWarningNotification(warning) {
 //    const currentTime = new Date().toLocaleString(); // Get the current time in a readable format
 
     const data = {
-        content: "",
+        content: "@everyone",
         tts: false,
         embeds: [
             {
