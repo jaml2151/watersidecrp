@@ -38,7 +38,7 @@ function checkForWarningUpdates() {
 }
 
 function sendWarningNotification(warning) {
-//    const currentTime = new Date().toLocaleString(); // Get the current time in a readable format
+    const currentTime = new Date().toLocaleString(); // Get the current time in a readable format
 
     const data = {
         content: "@everyone",
@@ -64,7 +64,7 @@ function sendWarningNotification(warning) {
                     url: orgIcons.hko
                 },
                 footer: {
-                    text: `Adverse weather notification issued from the Hong Kong Observatory • Last Update at`
+                    text: `Adverse weather notification issued from the Hong Kong Observatory • Last Update at ${currentTime}`
                 },
             }
         ],
