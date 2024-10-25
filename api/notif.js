@@ -64,9 +64,8 @@ function sendWarningNotification(warning) {
                     url: orgIcons.hko
                 },
                 footer: {
-                    text: `Adverse weather notification issued from the Hong Kong Observatory • Last Update at `
+                    text: `Adverse weather notification issued from the Hong Kong Observatory • Last Update at ${currentTime}`
                 },
-                timestamp: `${currentTime}`
             }
         ],
         components: [],
