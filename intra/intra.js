@@ -1,6 +1,6 @@
 const clientId = '864432311004823583';
 const clientSecret = 'ckU_4eItB0rdBUd30sOHOaxVGci_igW-';
-const redirectUri = 'https://jaml2151.github.io/watersidecrp/intra/dashboard/home.html'; // Update with your GitHub Pages URL
+const redirectUri = 'https://jaml2151.github.io/watersidecrp/intra/dashboard'; // Update with your GitHub Pages URL
 
 function saveUserDataToLocalStorage(userData) {
     localStorage.setItem('discordUserData', JSON.stringify(userData));
