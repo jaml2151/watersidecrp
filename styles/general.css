@@ -930,7 +930,7 @@ textarea {
     display: none;
     padding: 10px;
     margin: 10px auto;
-    height: 500px;
+    max-height: 700px;
     transition: opacity 0.3s ease;
     /* Add transition for the tab content */
     width: 80%;
