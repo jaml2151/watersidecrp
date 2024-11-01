@@ -60,10 +60,11 @@
                             <a onclick="signInWithDiscord()" class="external discord_login"><img
                                     src="../media/discord-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA
                                 DISCORD</a>
-                            <a onclick="signInWithRoblox()" class="external roblox_login"><img
+                            <!-- <a onclick="signInWithRoblox()" class="external roblox_login"><img
                                     src="../media/roblox-logo.svg" style="width: 26px; margin-right: 10px;">SIGN-IN VIA
-                                ROBLOX</a>
-
+                                ROBLOX
+                            </a>
+                            -->
                             <!-- <div class="alert alert-danger" role="alert">Your session has timed out. Please log in again.</div> -->
                         </div>
                     </div>
@@ -75,11 +76,18 @@
         </div>
     </form>
 
-    <script src="intra.js"></script>
-
     <script lang="text/javascript">
-        /** Random Background Image */
 
+        function signInWithDiscord() {
+            const clientId = '864432311004823583';
+            const clientSecret = 'ckU_4eItB0rdBUd30sOHOaxVGci_igW-';
+            const redirectUri = 'https://jaml2151.github.io/watersidecrp/intra/dashboard'; // Update with your GitHub Pages URL
+
+
+            window.location = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+guilds.join+email`;
+        }
+
+        /** Random Background Image */
         var bg = document.querySelector("#blkPhoto");
         var bgPath = "../media/image/background/";
         var format = ".jpg";

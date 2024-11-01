@@ -908,3 +908,55 @@ textarea {
     position: relative;
     color: rgb(255, 0, 0);
 }
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.tab-link {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 20px;
+    flex: 1;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tab-link.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.document {
+    display: none;
+    padding: 10px;
+    margin: 10px auto;
+    height: 500px;
+    transition: opacity 0.3s ease; /* Add transition for the tab content */
+    width: 80%;
+    background-color: #f6eded;
+    overflow-y: auto;
+}
+
+.docs_heading {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.docs_subheading {
+    padding: 5px 0;
+}
+
+.docs_content {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+li.item {
+    list-style: inside;
+}

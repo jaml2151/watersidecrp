@@ -8,7 +8,7 @@
 
     <meta name="title" content="Waterside Corporation">
     <meta name="description" content="Waterside Corporation, a Roblox based Cafe founded in 2022.">
-    
+
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/home.css">
 
@@ -62,7 +62,7 @@
                     <ul class="menu">
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="about.html">ABOUT US</a></li>
-                        <li class="sub_menu">
+                        <!--                        <li class="sub_menu">
                             <span class="sub_menu_label" class="current">SESSIONS</span>
                             <div class="sub_item">
                                 <ul>
@@ -72,6 +72,7 @@
                             </div>
                         </li>
                         <li><a href="connect.html">工作聯絡</a></li>
+                    -->
                         <li class="login">
                             <a class="login_button" href="intra/">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -110,7 +111,7 @@
     <section class="site_footer">
         <footer>
             <div class="footer_row">
-                ©️ 2024 WATERSIDECRP.COM
+                ©️ 2024 WATERSIDE
             </div>
             <div class="footer_row">
                 <ul class="social_media_icons">
@@ -175,7 +176,7 @@
             </div>
             <div class="footer_row">
                 <div class="footer_url">
-                    <a href="./disclaimer.html" class="privacy">Disclaimer</a>
+                    <a href="./legal.html" class="privacy">Legal Documents</a>
                     <a href="./map.html" class="map">Site Map</a>
                 </div>
             </div>
@@ -184,7 +185,6 @@
 
 
     <script src="./scripts/main.js"></script>
-    <!--<script src="./scripts/news.js"></script> -->
 
     <script>
         // /** popup notice **/
@@ -233,6 +233,24 @@
                 popup.style.display = 'none';
             }, 300);
         }
+
+        function showSlides() {
+            var slideIndex = 0;
+            var seconds = 10;
+            var i;
+            var slides = document.getElementsByClassName("carousel-item");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+
+            slides[slideIndex - 1].style.display = "block";
+
+            setTimeout(showSlides, seconds * 1000); // Change image every specified seconds in MS
+        }
+
+        showSlides();
     </script>
 </body>
 

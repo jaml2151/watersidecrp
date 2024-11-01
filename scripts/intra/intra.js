@@ -6,10 +6,6 @@ function saveUserDataToLocalStorage(userData) {
     localStorage.setItem('discordUserData', JSON.stringify(userData));
 }
 
-function signInWithDiscord() {
-    window.location = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+guilds.join+email`;
-}
-
 // Parse the authorization code from the query parameters
 const urlParams = new URLSearchParams(window.location.search);
 const code = urlParams.get('code');
@@ -42,6 +38,9 @@ if (code) {
 
                     // Save user data to localStorage
                     saveUserDataToLocalStorage(userData);
+
+                    // Start the session timeout countdown
+                    startSessionTimeout();
                 })
                 .catch(error => console.error('Error fetching user data:', error));
         })
@@ -51,4 +50,28 @@ if (code) {
 // Function to save user data to localStorage
 function saveUserDataToLocalStorage(userData) {
     localStorage.setItem('discordUserData', JSON.stringify(userData));
+}
+
+// Start the session timeout countdown
+function startSessionTimeout() {
+    let timeLeft = 1800; // 30 minutes countdown (30 minutes * 60 seconds)
+    const countdown = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            window.location.href = 'https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify';
+        } else {
+            console.log(`Session will expire in ${Math.floor(timeLeft / 60)} minutes and ${timeLeft % 60} seconds. Click OK to extend your session.`);
+            timeLeft--;
+        }
+    }, 1000); // 1 second interval
+
+    // Prompt user to extend session
+    setTimeout(() => {
+        if (confirm('Your session is about to expire. Click OK to extend your session.')) {
+            timeLeft = 1800; // Reset the countdown timer on user confirmation
+        } else {
+            clearInterval(countdown);
+            window.location.href = 'https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify';
+        }
+    }, 1740000); // 29 minutes (1740 seconds)
 }
