@@ -377,21 +377,35 @@ a.current .menu li::after {
 }
 
 .breadcrumb {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb-item {
+    display: inline;
     font-size: 14px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    color: #007bff;
 }
 
-.breadcrumb a {
+.breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+    padding: 0 5px;
+    color: #6c757d;
+}
+
+.breadcrumb-item a {
     text-decoration: none;
-    color: #333;
+    color: #007bff;
 }
 
-.breadcrumb .separator {
-    margin: 0 5px;
-    color: #999;
+.breadcrumb-item a:hover {
+    text-decoration: underline;
 }
 
+.breadcrumb-item.active a {
+    color: #8c0dbe;
+}
 .cookie-notice {
     position: fixed;
     bottom: 20px;
