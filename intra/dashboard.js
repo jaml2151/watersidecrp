@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         usernameElement.textContent = userData.username;
         avatarElement.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+
+        // Remove the code parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete('code');
+        const newUrl = `${window.location.pathname}${urlParams.toString() ? `?${urlParams.toString()}` : ''}`;
+        
+        // Update the URL without the code parameter
+        history.replaceState({}, document.title, newUrl);
     } else {
         // If user data is not available, redirect to sign-in page
         window.location.href = '../login.html';
