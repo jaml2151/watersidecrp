@@ -7,7 +7,7 @@ function saveUserDataToLocalStorage(userData) {
 }
 
 function signInWithDiscord() {
-    window.location = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+guilds.join`;
+    window.location = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+guilds.join+email`;
 }
 
 // Parse the authorization code from the query parameters
