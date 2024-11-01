@@ -191,6 +191,39 @@
         </footer>
     </section>
 
+    <section class="cookies-notice">
+        <div class="cookie-content">
+            <p>This website uses cookies to ensure you get the best experience. By continuing to use this site, you consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+                <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+            </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieNotice = document.querySelector('.cookie-notice');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieChoice')) {
+                cookieNotice.style.display = 'block';
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'accepted');
+                cookieNotice.style.display = 'none';
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'declined');
+                cookieNotice.style.display = 'none';
+            });
+        });
+    </script>
+    </section>
+
 
     <script src="./scripts/main.js"></script>
 
