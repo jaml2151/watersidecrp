@@ -392,7 +392,6 @@ a.current .menu li::after {
     color: #999;
 }
 
-
 .cookie-notice {
     position: fixed;
     bottom: 20px;
@@ -905,7 +904,8 @@ textarea {
     padding: 10px;
     margin: 10px auto;
     height: 500px;
-    transition: opacity 0.3s ease; /* Add transition for the tab content */
+    transition: opacity 0.3s ease;
+    /* Add transition for the tab content */
     width: 80%;
     background-color: #f6eded;
     overflow-y: auto;

@@ -115,6 +115,17 @@
             </div>
         </div>
     </section>
+    
+    <div class="cookies-notice">
+        <div class="cookie-content">
+            <p>This website uses cookies to ensure you get the best experience. By continuing to use this site, you
+                consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+                <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+            </div>
+        </div>
+    </div>
 
     <section class="site_footer">
         <footer>
@@ -191,17 +202,9 @@
         </footer>
     </section>
 
-    <div class="cookies-notice">
-        <div class="cookie-content">
-            <p>This website uses cookies to ensure you get the best experience. By continuing to use this site, you consent to our use of cookies.</p>
-            <div class="cookie-buttons">
-                <button id="accept-cookies" class="cookie-btn accept">Accept</button>
-                <button id="decline-cookies" class="cookie-btn decline">Decline</button>
-            </div>
-    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cookieNotice = document.querySelector('.cookie-notice');
             const acceptBtn = document.getElementById('accept-cookies');
             const declineBtn = document.getElementById('decline-cookies');
