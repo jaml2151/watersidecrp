@@ -903,6 +903,18 @@ textarea {
     color: rgb(255, 0, 0);
 }
 
+.welcome_msg {
+    width: 100%;
+    padding: 10px;
+    background-color: #74fffa;
+}
+
+.msg_container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
 .tabs {
     display: flex;
     justify-content: space-around;
@@ -936,6 +948,7 @@ textarea {
     width: 80%;
     background-color: #f6eded;
     overflow-y: auto;
+    scroll-behavior: auto;
 }
 
 .docs_heading {
@@ -947,7 +960,7 @@ textarea {
     padding: 5px 0;
 }
 
-.docs_content {
+.docs_content, .msg_paragraph {
     margin: 10px 0;
     line-height: 1.5;
 }
