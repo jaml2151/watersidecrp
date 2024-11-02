@@ -179,7 +179,7 @@ body {
     height: 100px;
     background-color: transparent;
     transition: height 0.3s ease, background-color 0.3s ease;
-    backdrop-filter: blur(10px);
+ /*   backdrop-filter: blur(10px); */
 }
 
 .site_heading.scrolled {
@@ -339,7 +339,7 @@ hr {
     font-size: 18px;
     font-weight: 500;
     transition: 0.2s all ease-in-out;
-    color: #b1b1b1;
+    color: #444444;
     text-transform: uppercase;
     opacity: 0.4;
 }
