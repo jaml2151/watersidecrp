@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         history.replaceState({}, document.title, newUrl);
     } else {
         // If user data is not available, redirect to sign-in page
-        window.location.href = '../login.html';
+        window.location.href = '../index.html';
     }
 });
 

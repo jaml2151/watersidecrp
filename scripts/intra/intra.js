@@ -29,18 +29,29 @@ if (code) {
             })
                 .then(response => response.json())
                 .then(userData => {
-                    const username = document.querySelector('.username');
-                    const avatar = document.querySelector('.avatar');
+                    fetch('../api/user.json')
+                        .then(response => response.json())
+                        .then(usersData => {
+                            const userExists = usersData.users.some(user => user.discord === userData.username);
+                            if (!userExists) {
+                                alert('Access Denied: No account found.');
+                                return;
+                            }
 
-                    // Display username and avatar
-                    username.textContent = userData.username;
-                    avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                            const username = document.querySelector('.username');
+                            const avatar = document.querySelector('.avatar');
 
-                    // Save user data to localStorage
-                    saveUserDataToLocalStorage(userData);
+                            // Display username and avatar
+                            username.textContent = userData.username;
+                            avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
 
-                    // Start the session timeout countdown
-                    startSessionTimeout();
+                            // Save user data to localStorage
+                            saveUserDataToLocalStorage(userData);
+
+                            // Start the session timeout countdown
+                            startSessionTimeout();
+                        })
+                        .catch(error => console.error('Error fetching user data:', error));
                 })
                 .catch(error => console.error('Error fetching user data:', error));
         })

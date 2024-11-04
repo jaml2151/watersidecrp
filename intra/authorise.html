@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet Access Authorisation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .external {
+            display: block;
+            border: 0;
+            color: #fff !important;
+            margin-top: 5px;
+            padding: 8px 30px 10px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            line-height: 26px;
+        }
+
+        .discord_login {
+            background: #3b82ff;
+        }
+
+        .roblox_login {
+            background: #ff1b1b;
+        }
+
+        .discord_login:hover {
+            background: #0f62fe;
+            /* High contrast with non-hover color */
+        }
+
+        .roblox_login:hover {
+            background: #d90000;
+            /* High contrast with non-hover color */
+        }
+
+        .external img {
+            vertical-align: top;
+            margin-right: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Intranet Access Authorisation</h1>
+        <form id="authoriseForm">
+            <div class="form-group">
+                <label for="discordAccount">Connect Discord Account</label>
+                <a onclick="signInWithDiscord()" class="external discord_login"><img src="../media/discord-logo.svg"
+                        style="width: 26px; margin-right: 10px;">CONNECT DISCORD</a>
+            </div>
+            <div class="form-group">
+                <label for="robloxAccount">Connect Roblox Account</label>
+                <a onclick="signInWithRoblox()" class="external roblox_login"><img src="../media/roblox-logo.svg"
+                        style="width: 26px; margin-right: 10px;">CONNECT ROBLOX</a>
+            </div>
+            <button type="button" onclick="authorise()">Authorise</button>
+        </form>
+    </div>
+
+    <script>
+        async function authorise() {
+            const discordAccount = document.getElementById('discordAccount').value;
+            const robloxAccount = document.getElementById('robloxAccount').value;
+
+            // Step 3: Get Roblox's Group Rank by Roblox OAuth
+            const rankID = await getRobloxGroupRank(robloxAccount);
+
+            if (rankID >= 100) {
+                // Step 4: Show terms and conditions
+                const accepted = confirm("You need to accept the terms and conditions to proceed.");
+                if (!accepted) {
+                    alert("You must accept the terms and conditions to gain access.");
+                    return;
+                }
+            }
+
+            // Step 5: Log the generated username and password
+            const username = generateUsername(discordAccount);
+            const password = generatePassword();
+            await logUser(username, password);
+
+            // Direct Message the user
+            directMessageUser(discordAccount, username, password);
+
+            alert("Authorisation successful!");
+        }
+
+        function getRobloxGroupRank(robloxAccount) {
+            // Mock function to simulate getting Roblox group rank
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(150); // Mock rank ID
+                }, 1000);
+            });
+        }
+
+        function generateUsername(discordAccount) {
+            // Generate a username based on the Discord account
+            return discordAccount.split('@')[0];
+        }
+
+        function generatePassword() {
+            // Generate a random password
+            return Math.random().toString(36).slice(-8);
+        }
+
+        async function logUser(username, password) {
+            const user = { username, password };
+            const response = await fetch('./api/user.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+            return response.json();
+        }
+
+        function directMessageUser(discordAccount, username, password) {
+            // Mock function to simulate sending a direct message
+            console.log(`Direct message to ${discordAccount}: Your username is ${username} and your password is ${password}`);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "username": "user1",
+            "password": "password1",
+            "discord": "discordUser1",
+            "roblox": "User1"
+        },
+        {
+            "username": "user2",
+            "password": "password2",
+            "discordUsername": "discordUser2",
+            "roblox": "User2"
+        },
+        {
+            "username": "user3",
+            "passwords": "password3",
+            "discordUsername": "discordUser3",
+            "roblox": "User3"
+        }
+    ]
+}
