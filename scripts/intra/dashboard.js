@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         // If user data is not available, redirect to sign-in page
         window.location.href = '../';
+    const warningElement = document.querySelector('.warning');
+    warningElement.style.display = 'block';
+    warningElement.textContent = 'Unauthorised user detected.';
     }
 });
 
