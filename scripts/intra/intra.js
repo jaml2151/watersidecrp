@@ -29,18 +29,29 @@ if (code) {
             })
                 .then(response => response.json())
                 .then(userData => {
-                    const username = document.querySelector('.username');
-                    const avatar = document.querySelector('.avatar');
+                    // Check if the user exists in the local user database
+                    fetch('../api/user.json')
+                        .then(response => response.json())
+                        .then(localData => {
+                            const userExists = localData.users.some(user => user.discord === userData.username);
+                            if (userExists) {
+                                const username = document.querySelector('.username');
+                                const avatar = document.querySelector('.avatar');
 
-                    // Display username and avatar
-                    username.textContent = userData.username;
-                    avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                                // Display username and avatar
+                                username.textContent = userData.username;
+                                avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
 
-                    // Save user data to localStorage
-                    saveUserDataToLocalStorage(userData);
+                                // Save user data to localStorage
+                                saveUserDataToLocalStorage(userData);
 
-                    // Start the session timeout countdown
-                    startSessionTimeout();
+                                // Start the session timeout countdown
+                                startSessionTimeout();
+                            } else {
+                                alert('Access Denied: You do not have an account.');
+                            }
+                        })
+                        .catch(error => console.error('Error fetching local user data:', error));
                 })
                 .catch(error => console.error('Error fetching user data:', error));
         })
