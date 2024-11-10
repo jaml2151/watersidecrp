@@ -29,29 +29,18 @@ if (code) {
             })
                 .then(response => response.json())
                 .then(userData => {
-                    // Check if the user exists in the local user database
-                    fetch('../api/user.json')
-                        .then(response => response.json())
-                        .then(localData => {
-                            const userExists = localData.users.some(user => user.discord === userData.username);
-                            if (userExists) {
-                                const username = document.querySelector('.username');
-                                const avatar = document.querySelector('.avatar');
+                    const username = document.querySelector('.username');
+                    const avatar = document.querySelector('.avatar');
 
-                                // Display username and avatar
-                                username.textContent = userData.username;
-                                avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                    // Display username and avatar
+                    username.textContent = userData.username;
+                    avatar.src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
 
-                                // Save user data to localStorage
-                                saveUserDataToLocalStorage(userData);
+                    // Save user data to localStorage
+                    saveUserDataToLocalStorage(userData);
 
-                                // Start the session timeout countdown
-                                startSessionTimeout();
-                            } else {
-                                alert('Access Denied: You do not have an account.');
-                            }
-                        })
-                        .catch(error => console.error('Error fetching local user data:', error));
+                    // Start the session timeout countdown
+                    startSessionTimeout();
                 })
                 .catch(error => console.error('Error fetching user data:', error));
         })
@@ -69,7 +58,7 @@ function startSessionTimeout() {
     const countdown = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(countdown);
-            window.location.href = 'https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify';
+            window.location.href = '../../intra';
         } else {
             console.log(`Session will expire in ${Math.floor(timeLeft / 60)} minutes and ${timeLeft % 60} seconds. Click OK to extend your session.`);
             timeLeft--;
@@ -82,7 +71,7 @@ function startSessionTimeout() {
             timeLeft = 1800; // Reset the countdown timer on user confirmation
         } else {
             clearInterval(countdown);
-            window.location.href = 'https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify';
+            window.location.href = '../../intra';
         }
     }, 1740000); // 29 minutes (1740 seconds)
 }
