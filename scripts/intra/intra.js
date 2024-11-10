@@ -60,18 +60,22 @@ function startSessionTimeout() {
             clearInterval(countdown);
             window.location.href = '../../intra';
         } else {
-            console.log(`Session will expire in ${Math.floor(timeLeft / 60)} minutes and ${timeLeft % 60} seconds. Click OK to extend your session.`);
+            console.log(`Session will expire in ${Math.floor(timeLeft / 60)} minutes and ${timeLeft % 60} seconds.`);
             timeLeft--;
         }
     }, 1000); // 1 second interval
 
     // Prompt user to extend session
-    setTimeout(() => {
-        if (confirm('Your session is about to expire. Click OK to extend your session.')) {
+    const promptTimeout = setTimeout(() => {
+        const userConfirmed = confirm('Your session is about to expire. Click OK to extend your session.');
+        if (userConfirmed) {
             timeLeft = 1800; // Reset the countdown timer on user confirmation
         } else {
             clearInterval(countdown);
             window.location.href = '../../intra';
         }
     }, 1740000); // 29 minutes (1740 seconds)
+
+    // Ensure the prompt timeout does not interfere with the countdown
+    countdown;
 }
