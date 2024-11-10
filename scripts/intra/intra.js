@@ -65,15 +65,44 @@ function startSessionTimeout() {
         }
     }, 1000); // 1 second interval
 
-    // Prompt user to extend session
-    const promptTimeout = setTimeout(() => {
-        const userConfirmed = confirm('Your session is about to expire. Click OK to extend your session.');
-        if (userConfirmed) {
+    // Create a popup for extending session
+    const createPopup = () => {
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.backgroundColor = 'white';
+        popup.style.padding = '20px';
+        popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+        popup.style.zIndex = '1000';
+
+        const message = document.createElement('p');
+        message.textContent = 'Your session is about to expire. Do you want to extend your session?';
+        popup.appendChild(message);
+
+        const extendButton = document.createElement('button');
+        extendButton.textContent = 'Extend Session';
+        extendButton.onclick = () => {
             timeLeft = 1800; // Reset the countdown timer on user confirmation
-        } else {
+            document.body.removeChild(popup);
+        };
+        popup.appendChild(extendButton);
+
+        const logoutButton = document.createElement('button');
+        logoutButton.textContent = 'Logout';
+        logoutButton.onclick = () => {
             clearInterval(countdown);
             window.location.href = '../../intra';
-        }
+        };
+        popup.appendChild(logoutButton);
+
+        document.body.appendChild(popup);
+    };
+
+    // Show the popup 1 minute before session expires
+    const promptTimeout = setTimeout(() => {
+        createPopup();
     }, 1740000); // 29 minutes (1740 seconds)
 
     // Ensure the prompt timeout does not interfere with the countdown
