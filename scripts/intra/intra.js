@@ -54,7 +54,7 @@ function saveUserDataToLocalStorage(userData) {
 
 // Start the session timeout countdown
 function startSessionTimeout() {
-    let timeLeft = 60; // 30 minutes countdown (30 minutes * 60 seconds)
+    let timeLeft = 1800; // 30 minutes countdown (30 minutes * 60 seconds)
     const countdown = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(countdown);
