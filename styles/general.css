@@ -250,7 +250,7 @@ hr {
     bottom: 0;
     left: 0;
     height: 2px;
-    background: #2691d9;
+    background: #100656;
     transition: transform 0.25s ease-out;
     transform-origin: center;
 }
@@ -340,14 +340,14 @@ hr {
     font-size: 18px;
     font-weight: 500;
     transition: 0.2s all ease-in-out;
-    color: #444444;
+    color: #e4c1c1;
     text-transform: uppercase;
     opacity: 0.4;
 }
 
 .menu a:hover,
 .sub_menu_label:hover {
-    color: #2691d9;
+    color: #100656;
     opacity: 1;
 }
 
@@ -609,7 +609,7 @@ section.welcome_banner {
     background-repeat: no-repeat;
 }
 
-/*.heading_banner::before {
+.heading_banner::before {
     content: "";
     display: block;
     position: absolute;
@@ -618,12 +618,12 @@ section.welcome_banner {
     width: 100%;
     height: 105%;
     background: linear-gradient(rgba(34, 34, 34, 0.6),
-            rgb(255, 255, 255) 85%);
+            rgba(255, 255, 255, 0.5) 85%);
     background-repeat: no-repeat;
     background-position: 50% 100%;
     background-size: contain;
     transition: 1s;
-}*/
+}
 
 .heading_banner_text {
     position: absolute;
