@@ -242,7 +242,7 @@ hr {
     margin-right: 5px;
 }
 
-.menu li::after {
+.menu li:not(.login)::after {
     content: '';
     position: absolute;
     width: 100%;
