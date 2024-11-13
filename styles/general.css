@@ -476,7 +476,7 @@ a.current .menu li::after {
 /* WELCOMING BANNER CSS */
 section.welcome_banner {
     width: 100%;
-    height: 50vh;
+    height: 100vh;
 }
 
 .carousel-item::before {
@@ -977,16 +977,29 @@ textarea {
 
 .docs_heading {
     text-align: center;
+}
+
+.msg_heading, .docs_heading {
     padding: 10px 0;
+    border-bottom: 1px solid #d6d5e2;
+}
+
+.msg_heading span {
+    padding: 10px 0;
+    border-bottom: 1px solid #6a5fff;
 }
 
 .docs_subheading {
-    padding: 5px 0;
+    padding: 10px 0;
+}
+
+.msg_subheading {
+    padding-top: 20px;
 }
 
 .docs_content,
 .msg_paragraph {
-    margin: 10px 0;
+    margin: 5px 0;
     line-height: 1.5;
 }
 

@@ -81,58 +81,25 @@
     <section class="messageSection" id="welcomeMessage">
         <div class="msg_inner multipleColumn">
             <div class="msg_text">
-                <h2 class="msg_heading">Chairman's Insight</h2>
+                <h2 class="msg_heading"><span>Chairperson's Insight</span></h2>
+                <h3 class="msg_subheading">Welcome to our website!</h3>
                 <p class="msg_paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu ornare arcu, non lobortis enim.
-                    Duis
-                    lorem arcu, interdum vitae sagittis eu, volutpat ac turpis. In nec mi in orci gravida commodo. Ut
-                    mauris
-                    purus, rhoncus tempus ullamcorper eu, dictum feugiat tellus. Nullam nec mollis ante. Vivamus
-                    sollicitudin nisl ac accumsan consectetur. Fusce bibendum feugiat dolor, sed laoreet justo tempor
-                    ac.
-                    Suspendisse in pretium massa. Etiam vestibulum consequat ligula, sed luctus nisl euismod iaculis.
+                    Thank you for visiting the website of the <strong class="brand"
+                        style="color: rgb(6, 106, 255);">Waterside Corporation</strong>, a Hong Kong-based
+                    Roblox Cafe Community. As the Chairperson of Waterside, it is my great plasure to deliver a
+                    welcoming message on behalf of our Team.
                 </p>
                 <p class="msg_paragraph">
-                    Cras accumsan erat ac nulla suscipit semper. Proin sagittis ligula dui. Quisque finibus diam sapien,
-                    et
-                    cursus lorem gravida id. Maecenas tempor, nisi sit amet posuere ultrices, nibh neque feugiat enim, a
-                    rutrum nisl risus a augue. Proin ornare pharetra justo in dapibus. In dignissim consequat interdum.
-                    Phasellus in auctor sem, at rhoncus arcu. Curabitur hendrerit massa dui, et consectetur ante tempus
-                    sed.
-                    Quisque vitae consequat arcu. Curabitur lobortis tellus non leo pellentesque, non ultricies sapien
-                    convallis.
+                    Like our Motto, "The Magic of Unforgettable Journey". Unlike other Roblox Cafe industries, Waterside
+                    is a Hong Kong-based community. Our target is to bring Hong Kong characteristics inside our Cafe to
+                    make our Customers know more, feel more about Hong Kong, as just what our motto trying to express,
+                    to bring our customers having a journey in Hong Kong.
                 </p>
                 <p class="msg_paragraph">
-                    Etiam mattis leo id lorem porttitor dignissim. Sed eget ex ac ante gravida posuere. Suspendisse nisi
-                    urna, vulputate a orci id, euismod hendrerit leo. Quisque consequat felis quis molestie porta.
-                    Mauris ac
-                    mattis quam, eu vulputate odio. Maecenas malesuada tristique nisi a tempor. Vestibulum ut purus
-                    elit.
-                    Vivamus quis ex erat. Donec venenatis euismod urna sed malesuada. Praesent eu sem luctus arcu
-                    laoreet
-                    fermentum. Nam at odio eu ipsum facilisis elementum eget et metus.
-                </p>
-                <p class="msg_paragraph">
-                    Nullam dictum volutpat nibh id hendrerit. Suspendisse potenti. Aliquam consectetur turpis a eros
-                    efficitur tempor. Praesent ultrices varius sem vel finibus. Praesent condimentum, lorem eu semper
-                    malesuada, augue est laoreet est, ac efficitur quam augue sed arcu. Pellentesque fermentum lectus at
-                    lacinia dictum. Donec lobortis venenatis massa, sit amet aliquam tellus pharetra eget.
-                </p>
-                <p class="msg_paragraph">
-                    Aliquam mattis, elit nec scelerisque suscipit, nunc ex eleifend ante, in posuere nibh quam at sem.
-                    Maecenas auctor lacus turpis, eu accumsan velit sollicitudin ut. Nullam at orci euismod, vehicula
-                    velit
-                    ac, egestas quam. Aenean augue nulla, mollis faucibus justo a, eleifend congue nisl. Quisque sit
-                    amet
-                    imperdiet tellus. Vestibulum vitae lacus ut arcu dignissim hendrerit. Donec ac mi vel dui congue
-                    dictum
-                    semper at dolor. Proin ac pulvinar ipsum. Nullam feugiat libero odio, in fermentum mi consequat
-                    vitae.
-                    Proin metus velit, ullamcorper sit amet placerat eu, dictum a turpis. Sed vel metus at neque porta
-                    vestibulum vel tincidunt risus. Morbi aliquam diam et cursus tincidunt. Cras id porta arcu. Donec
-                    sed
-                    mauris fermentum, euismod est id, tincidunt ex. Phasellus quam sapien, laoreet non nisi ut, mollis
-                    congue nisi. Proin sit amet auctor ante.
+                    We always welcome any potential staff into our team. For further announcements regarding our
+                    recruitment, please pay attention to our latest annoucements by joining our <a
+                        href="https://discord.gg/QVgNJHyAZG">Discord Server</a>, or take a look at the <a
+                        href="./recruit.html">Recruitment Page</a> for some required information.
                 </p>
             </div>
             <div class="msg_author">
@@ -144,7 +111,7 @@
 
     <section class="messageSection" id="orgChart">
         <div class="msg_inner">
-            <h2 class="msg_heading">Organisational Chart</h2>
+            <h2 class="msg_heading"><span>Organisational Chart</span></h2>
             <div class="container">
                 <p class="level-1 rectangle">Owners & Co-Owners</p>
                 <ol class="level-2-wrapper">
@@ -167,7 +134,7 @@
                             </li>
                             <li>
                                 <p class="level-3 rectangle">External Development</p>
-                                
+
                                 <ol class="level-4-wrapper">
                                     <li>
                                         <p class="level-4 rectangle">Utility Programming</p>
@@ -301,7 +268,7 @@
     <script src="./scripts/main.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("section[id]");
             const sidebarList = document.getElementById("sidebarList");
             const headerOffset = 70; // Height of the fixed header
@@ -316,7 +283,7 @@
                 sidebarList.appendChild(listItem);
 
                 // Smooth scroll on link click with offset
-                link.addEventListener("click", function(event) {
+                link.addEventListener("click", function (event) {
                     event.preventDefault(); // Prevent default anchor click behavior
                     const targetId = this.getAttribute("href");
                     const targetSection = document.querySelector(targetId);
