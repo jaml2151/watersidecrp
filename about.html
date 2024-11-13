@@ -72,8 +72,14 @@
         </ol>
     </nav>
 
-    <section class="welcome_msg">
-        <div class="msg_inner">
+    <nav class="sidebar">
+        <ul id="sidebarList">
+            <!-- Sidebar items will be generated here -->
+        </ul>
+    </nav>
+
+    <section class="messageSection" id="welcomeMessage">
+        <div class="msg_inner multipleColumn">
             <div class="msg_text">
                 <h2 class="msg_heading">Chairman's Insight</h2>
                 <p class="msg_paragraph">
@@ -132,6 +138,87 @@
             <div class="msg_author">
                 <img class="author_pfp" src="./media/image/chairman.png" alt="Message Author">
                 <p class="author_name">JamieL1210</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="messageSection" id="orgChart">
+        <div class="msg_inner">
+            <h2 class="msg_heading">Organisational Chart</h2>
+            <div class="container">
+                <p class="level-1 rectangle">Owners & Co-Owners</p>
+                <ol class="level-2-wrapper">
+                    <li>
+                        <p class="level-2 rectangle">Development Team</p>
+                        <ol class="level-3-wrapper">
+                            <li>
+                                <p class="level-3 rectangle">Roblox Development</p>
+                                <ol class="level-4-wrapper">
+                                    <li>
+                                        <p class="level-4 rectangle">UI Designing</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Scripting</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Building</p>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <p class="level-3 rectangle">External Development</p>
+                                
+                                <ol class="level-4-wrapper">
+                                    <li>
+                                        <p class="level-4 rectangle">Utility Programming</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Web Development</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Hardware Systems</p>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p class="level-2 rectangle">Corporate Management</p>
+                        <ol class="level-3-wrapper">
+                            <li>
+                                <p class="level-3 rectangle">Executives</p>
+                                <ol class="level-4-wrapper">
+                                    <li>
+                                        <p class="level-4 rectangle">Training Coordination</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Supervising</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Management</p>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <p class="level-3 rectangle">Department Supervisors</p>
+                                <ol class="level-4-wrapper">
+                                    <li>
+                                        <p class="level-4 rectangle">Human Resources</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Public Relations</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Moderation</p>
+                                    </li>
+                                    <li>
+                                        <p class="level-4 rectangle">Customer Support</p>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
             </div>
         </div>
     </section>
@@ -213,6 +300,58 @@
 
     <script src="./scripts/main.js"></script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section[id]");
+            const sidebarList = document.getElementById("sidebarList");
+            const headerOffset = 70; // Height of the fixed header
+
+            // Generate sidebar items
+            sections.forEach(section => {
+                const listItem = document.createElement("li");
+                const link = document.createElement("a");
+                link.href = `#${section.id}`;
+                link.textContent = section.querySelector(".msg_heading") ? section.querySelector(".msg_heading").textContent : section.id;
+                listItem.appendChild(link);
+                sidebarList.appendChild(listItem);
+
+                // Smooth scroll on link click with offset
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent default anchor click behavior
+                    const targetId = this.getAttribute("href");
+                    const targetSection = document.querySelector(targetId);
+                    const sectionPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerOffset; // Calculate position with offset
+                    window.scrollTo({
+                        top: sectionPosition,
+                        behavior: "smooth" // Smooth scroll to the section
+                    });
+                });
+            });
+
+            // Highlight the active section in the sidebar
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.5 // Trigger when 50% of the section is visible
+            };
+
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    const link = sidebarList.querySelector(`a[href="#${entry.target.id}"]`);
+                    if (entry.isIntersecting) {
+                        link.classList.add('active'); // Add active class
+                    } else {
+                        link.classList.remove('active'); // Remove active class
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => {
+                observer.observe(section); // Observe each section
+            });
+        });
+    </script>
 </body>
 
 </html>
