@@ -627,16 +627,13 @@ section.welcome_banner {
 
 .heading_banner_text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    bottom: 0;
+    left: 0;
     color: rgb(255, 255, 255);
-    animation: fade-in 5s;
-    font-size: 53px;
-
-    /* text-shadow: 0 0 3px rgb(0, 0, 0); */
+    padding: 25px;
+/*    animation: fade-in 3s; */
+    font-size: 24px;
+    background-color: rgba(100, 149, 237, 0.7); /* Updated for better contrast in light theme */
     user-select: none;
     text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.1),
@@ -645,6 +642,7 @@ section.welcome_banner {
         /* Sky blue shadow for the main effect */
         0 6px 15px rgba(173, 216, 230, 0.8);
     /* Stronger sky blue shadow for emphasis */
+    border-top-right-radius: 15px;
 }
 
 /* PAGE HEADING CSS - END */
