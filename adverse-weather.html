@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./styles/home.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>CONTACT US</title>
+    <title>ADVERSE WEATHER ARRANGEMENTS</title>
     <link rel="icon" href="./media/image/waterside-icon.png" type="image/x-icon">
 
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
@@ -61,16 +61,30 @@
 
     <section class="heading_banner">
         <div class="heading_banner_text">
-            <h1>Contact Us</h1>
+            <h1>Adverse Weather Arrangements</h1>
         </div>
     </section>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active"><a href="./recruit.html">Contact Us</a></li>
+            <li class="breadcrumb-item active"><a href="weather.html">Adverse Weather Arrangements</a></li>
         </ol>
     </nav>
+
+    <section class="messageSection">
+        <div class="msg_inner">
+            <div class="msg_text">
+                <h2 class="msg_heading">Adverse Weather Arrangements</h2>
+                <h3 class="msg_subheading">Notice before reading</h3>
+                <p class="msg_paragraph">
+                    Even though we are a Hong Kong-based community. However, since we are a <strong>Virtual
+                        Community</strong>. Therefore, any announcement made by Hong Kong SAR regarding the Adverse
+                    Weather Announcements should supposed not to be affected.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <section class="site_footer">
         <footer>
@@ -140,13 +154,33 @@
             </div>
             <div class="footer_row">
                 <div class="footer_url">
-                    <a href="./legal.html">Legal Documents</a>
-                    <a href="./map.html">Site-Map</a>
-                    <a href="./adverse-weather.html">Adverse Weather</a>
+                    <a href="./legal.html" class="privacy">Legal Documents</a>
+                    <a href="./map.html" class="map">Site-Map</a>
                 </div>
             </div>
         </footer>
     </section>
+
+    <script>
+        function showDocument(tabName) {
+            var i, tabs;
+            tabs = document.getElementsByClassName("document");
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].style.opacity = 0; // Set opacity to 0 before changing display
+                tabs[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(function () {
+                document.getElementById(tabName).style.opacity = 1; // Fade in the tab content
+            }, 50); // Delay the fade-in to allow display change
+
+            var tabLinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+            event.currentTarget.classList.add("active");
+        }
+    </script>
 
     <script src="./scripts/main.js"></script>
 

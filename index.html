@@ -29,6 +29,54 @@
 
 <body>
 
+    <noscript>
+        <div class="noscript-page">
+            <h1>JavaScript is Disabled</h1>
+            <p>It's like having a superpower for your browser! JavaScript enhances your browsing experience, making it
+                more interactive and dynamic.</p>
+            <p>To unlock the full potential of our website, please enable JavaScript in your browser settings or
+                consider using a different browser.</p>
+            <div class="noscript-image">
+                <img src="./media/image/noscript-image.png" alt="Enable JavaScript for a better experience">
+            </div>
+            <p>With JavaScript enabled, you'll be able to:</p>
+            <ul>
+                <li>Interact with dynamic content</li>
+                <li>Enjoy smoother animations and transitions</li>
+                <li>Access advanced features and functionalities</li>
+            </ul>
+            <p>Don't miss out on the enhanced experience! Enable JavaScript today.</p>
+        </div>
+    </noscript>
+    <!--  <div class="popup_notice" id="popup">
+        <div class="notice_container">
+            <div class="notice_top">
+                <div class="top_text">
+                    <h2 class="top_text title">Special Announcement</h2>
+                </div>
+                <button class="close_button" id="closePopup">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="notice_content">
+                <div class="notice_type plain_text">
+                    <p>Dear valued members,</p>
+                    <p>We are excited to announce that our community will be hosting a special event on [Date]. This
+                        event aims to bring our members closer together and provide a unique experience. We encourage
+                        everyone to participate and make the most out of this opportunity.</p>
+                    <p>For more information, please visit our website or social media channels.</p>
+                    <p>Thank you for your continued support.</p>
+                    <p>Best regards,</p>
+                    <p>The Waterside Team</p>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
     <section class="site_heading">
         <div class="logo">
             <a href="./index.html">WATERSIDE</a>
@@ -99,9 +147,6 @@
     <section class="site_footer">
         <footer>
             <div class="footer_row">
-                ©️ 2024 WATERSIDE
-            </div>
-            <div class="footer_row">
                 <ul class="social_media_icons">
 
                     <li class="nav-item">
@@ -164,9 +209,21 @@
             </div>
             <div class="footer_row">
                 <div class="footer_url">
-                    <a href="./legal.html">Legal Documents</a>
-                    <a href="./map.html">Site Map</a>
+                    <ul class="footer_menu">
+                        <li>
+                            <a href="./legal.html">Legal Documents</a>
+                        </li>
+                        <li>
+                            <a href="./map.html">Site Map</a>
+                        </li>
+                        <li>
+                            <a href="./adverse-weather.html">Adverse Weather</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+            <div class="footer_row">
+                ©️ 2024 WATERSIDE, ALL RIGHTS RESERVED
             </div>
         </footer>
     </section>
@@ -194,53 +251,46 @@
             });
         });
 
-
-
         // /** popup notice **/
         document.addEventListener("DOMContentLoaded", function () {
-            var delayInMilliseconds = 2000; // Delay in milliseconds before showing the popup (e.g., 3000 milliseconds = 3 seconds)
+            const delayInMilliseconds = 2000; // Delay in milliseconds before showing the popup (e.g., 3000 milliseconds = 3 seconds)
 
-            var popup = document.querySelector("#popup");
-            var closeButton = document.querySelector("#close");
-            var popupContent = document.querySelector('.popup_content');
+            const popup = document.querySelector("#popup");
+            const closeButton = document.querySelector("#closePopup");
+            const popupContent = document.querySelector('.noticecontainer');
 
             if (popup) {
-                setTimeout(function () {
-                    openPopup();
-                }, delayInMilliseconds);
+                setTimeout(openPopup, delayInMilliseconds);
             }
 
             // JavaScript code to close the popup when the close button is clicked
             if (closeButton) {
-                closeButton.addEventListener("click", function () {
-                    if (popup) {
-                        closePopup();
-                    }
-                });
+                closeButton.addEventListener("click", closePopup);
             }
         });
 
         function openPopup() {
-            var popup = document.querySelector('#popup');
-            var popupContent = document.querySelector('.popup_content');
+            const popup = document.querySelector('#popup');
+            const popupContent = document.querySelector('.notice_container'); // Corrected selector
 
             popup.style.opacity = '1';
             popup.style.display = 'flex';
 
-            setTimeout(function () {
-                popupContent.style.transform = 'scale(1)';
-            }, 100); // Delay the animation for 100 milliseconds
+            // Smoothly slide the popup content from bottom to top over 0.5 seconds
+            popupContent.style.transform = 'translateY(0)';
+            popupContent.style.opacity = '1';
         }
 
         function closePopup() {
-            var popup = document.querySelector('#popup');
-            var popupContent = document.querySelector('.popup_content');
+            const popup = document.querySelector('#popup');
+            const popupContent = document.querySelector('.notice_container'); // Corrected selector
 
-            popup.style.opacity = '0';
-            popupContent.style.transform = 'scale(0)';
+            popupContent.style.transform = 'translateY(100%)';
+            popupContent.style.opacity = '0';
+
             setTimeout(() => {
                 popup.style.display = 'none';
-            }, 300);
+            }, 500);
         }
 
         function showSlides() {

@@ -850,6 +850,25 @@ footer {
     margin-left: 10px;
 }
 
+.footer_menu {
+    display: flex;
+    align-items: center;
+}
+
+.footer_menu li {
+    position: relative;
+    margin-right: 5px;
+}
+
+.footer_menu li:not(:last-child):after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    right: -7px;
+    width: 1.5px;
+    background: #100656;
+}
+
 .contact {
     position: relative;
 }
